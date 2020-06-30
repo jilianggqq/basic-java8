@@ -13,6 +13,7 @@
     <!-- sub modules -->
     <modules>
         <module>basic-java8-core</module>
+       <module>old-code</module>
     </modules>
 
     <dependencies>

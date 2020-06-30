@@ -1,4 +1,4 @@
-package edu.gqq.lambda;
+package edu.gqq.stream;
 
 import java.security.cert.CertPathValidatorException;
 

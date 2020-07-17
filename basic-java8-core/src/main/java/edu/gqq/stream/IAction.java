@@ -1,7 +1,4 @@
-package edu.gqq.lambda;
-
-import com.sun.xml.internal.xsom.impl.scd.Iterators;
-
+package edu.gqq.stream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;

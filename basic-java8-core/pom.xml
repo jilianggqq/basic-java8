@@ -10,7 +10,6 @@
         <version>0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>edu.gqq</groupId>
     <artifactId>basic-java8-core</artifactId>
     <packaging>jar</packaging>
     <name>basic-java8-core</name>

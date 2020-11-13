@@ -18,7 +18,7 @@
     </modules>
 
     <properties>
-        <junitVersion>4.13</junitVersion>
+        <junitVersion>4.13.1</junitVersion>
         <commonLang3Ver>3.11</commonLang3Ver>
         <logbackVer>1.2.3</logbackVer>
     </properties>

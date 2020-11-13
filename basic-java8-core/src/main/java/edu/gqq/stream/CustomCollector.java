@@ -11,7 +11,8 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * T is the type of items in the stream to be collected <br/> A is the type of the accumulator R is the type
@@ -21,7 +22,7 @@ import org.apache.log4j.Logger;
  */
 public class CustomCollector {
 
-    private static final Logger logger = Logger.getLogger(CustomCollector.class);
+    private static final Logger logger = LoggerFactory.getLogger(CustomCollector.class);
 
     public static HistogramCollector toHistogram(int bucketSize) {
         return new HistogramCollector(bucketSize);
@@ -32,7 +33,7 @@ public class CustomCollector {
         Map<Integer, Integer> integerMap = numbers.stream()
             .collect(toHistogram(1));
 
-        logger.debug(integerMap);
+        logger.debug(integerMap.toString());
     }
 }
 

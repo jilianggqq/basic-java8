@@ -5,7 +5,8 @@ import java.time.Instant;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
@@ -13,20 +14,20 @@ import org.apache.log4j.Logger;
 public class StreamBasicDemo {
 
     // Get actual class name to be printed on
-    private static final Logger logger = Logger.getLogger(StreamBasicDemo.class);
+    private static final Logger logger = LoggerFactory.getLogger(StreamBasicDemo.class);
 
     public static void main(String[] args) {
         logger.info("****** main start *******");
         //1. IntStreams can replace the regular for-loop utilizing IntStream.range()
-        IntStream.range(1, 5).forEach(x -> logger.debug(x));
+        IntStream.range(1, 5).forEach(x -> logger.debug(String.valueOf(x)));
 
         // 2. Sometimes it's useful to transform a regular object stream to a primitive stream or vice versa.
         // For that purpose object streams support the special mapping operations mapToInt(), mapToLong() and mapToDouble:
         Stream.of("a1", "a100", "a3")
             .map(str -> str.substring(1))
-            .mapToInt(Integer::parseInt)
+            .mapToInt(str -> Integer.parseInt(str))
             .max()
-            .ifPresent(x -> logger.debug(x));
+            .ifPresent(x -> logger.debug(x + ""));
 
         // 3. Primitive streams can be transformed to object streams via mapToObj():
         IntStream.range(5, 8)
@@ -64,7 +65,7 @@ public class StreamBasicDemo {
         Supplier<Stream<String>> streamSupplier = () -> Stream.of("d2", "a2", "b1", "b3", "c");
         streamSupplier.get().filter(x -> x.startsWith("b")).findFirst().ifPresent(x -> logger.debug(x));
         boolean res = streamSupplier.get().anyMatch(x -> x.contains("3"));
-        logger.debug(res);
+        logger.debug(res + "");
     }
 
     /**

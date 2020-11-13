@@ -2,7 +2,8 @@ package edu.gqq.stream;
 
 import java.util.Arrays;
 import java.util.List;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
@@ -18,7 +19,7 @@ import org.apache.log4j.Logger;
 public class StreamReduceDemo {
 
     // Get actual class name to be printed on
-    private static final Logger logger = Logger.getLogger(StreamReduceDemo.class);
+    private static final Logger logger = LoggerFactory.getLogger(StreamReduceDemo.class);
 
     public static void main(String[] args) {
         List<Person> persons =

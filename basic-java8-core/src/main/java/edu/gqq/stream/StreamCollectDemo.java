@@ -6,7 +6,8 @@ import java.util.Map;
 import java.util.StringJoiner;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
@@ -14,7 +15,7 @@ import org.apache.log4j.Logger;
 public class StreamCollectDemo {
 
     // Get actual class name to be printed on
-    private static final Logger logger = Logger.getLogger(StreamCollectDemo.class);
+    private static final Logger logger = LoggerFactory.getLogger(StreamCollectDemo.class);
 
     public static void main(String[] args) {
         connectorTest();
@@ -68,7 +69,7 @@ public class StreamCollectDemo {
             .filter(p -> p.name.startsWith("P"))
             .collect(Collectors.toList());
 
-        logger.debug(pPersons);
+        logger.debug(pPersons.toString());
 
         logger.info("################### test groupingBy ###################");
         Map<Integer, List<Person>> personsByAge = persons.stream()
@@ -89,7 +90,7 @@ public class StreamCollectDemo {
         Map<Integer, String> listToMap = persons.stream()
             .collect(Collectors.toMap(p -> p.age, p -> p.name, (p1, p2) -> p1 + ";" + p2));
 
-        logger.debug(listToMap);
+        logger.debug(listToMap.toString());
 
         logger.info("################### test partitioningBy ###################");
         Map<Boolean, List<Person>> partPeople = persons.stream()

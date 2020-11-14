@@ -18,7 +18,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jettyVersion>9.4.19.v20190610</jettyVersion>
-        <powermockVer>2.0.7</powermockVer>
+        <powermockVer>1.6.4</powermockVer>
         <powerapiVer>1.7.4</powerapiVer>
     </properties>
     <dependencies>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito</artifactId>
-            <version>${powerapiVer}</version>
+            <version>${powermockVer}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

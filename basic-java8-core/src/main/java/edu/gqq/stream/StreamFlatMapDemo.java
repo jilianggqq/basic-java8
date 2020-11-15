@@ -7,7 +7,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
@@ -23,7 +24,7 @@ import org.apache.log4j.Logger;
 public class StreamFlatMapDemo {
 
     // Get actual class name to be printed on
-    private static final Logger logger = Logger.getLogger(StreamFlatMapDemo.class);
+    private static final Logger logger = LoggerFactory.getLogger(StreamFlatMapDemo.class);
 
     public static void main(String[] args) {
         logger.info("################### mapObject start ###################");
@@ -90,7 +91,7 @@ public class StreamFlatMapDemo {
         Supplier<Stream<Bar>> supplierBars = () -> fooList.stream().flatMap(foo -> foo.bars.stream());
 
         //15
-        logger.debug(supplierBars.get().count());
+        logger.debug(supplierBars.get().count() + "");
 
         supplierBars.get().forEach(bar -> {
             logger.debug(bar.name);

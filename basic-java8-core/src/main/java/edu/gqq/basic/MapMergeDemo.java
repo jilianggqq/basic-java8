@@ -2,11 +2,12 @@ package edu.gqq.basic;
 
 import java.util.HashMap;
 import java.util.function.BiFunction;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MapMergeDemo {
 
-    private static final Logger logger = Logger.getLogger(MapMergeDemo.class);
+    private static final Logger logger = LoggerFactory.getLogger(MapMergeDemo.class);
 
     public static void main(String[] args) {
         // create a HashMap and add some values
@@ -23,13 +24,13 @@ public class MapMergeDemo {
         BiFunction<String, String, String> biFunction = (v1, v2) -> v1 + " | " + v2;
 
         map2.merge(3, "Akash", biFunction);
-        logger.debug(map2);
+        logger.warn(map2.toString());
         map2.merge(10, "Sharmin", biFunction);
-        logger.debug(map2);
+        logger.debug(map2.toString());
 
         map1.forEach((key, val) -> {
             map2.merge(key, val, biFunction);
         });
-        logger.debug(map2);
+        logger.error(map2.toString());
     }
 }

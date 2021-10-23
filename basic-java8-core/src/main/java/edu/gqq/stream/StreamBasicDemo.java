@@ -25,7 +25,7 @@ public class StreamBasicDemo {
         // For that purpose object streams support the special mapping operations mapToInt(), mapToLong() and mapToDouble:
         Stream.of("a1", "a100", "a3")
             .map(str -> str.substring(1))
-            .mapToInt(Integer::parseInt)
+            .mapToInt(str -> Integer.parseInt(str))
             .max()
             .ifPresent(x -> logger.debug(x + ""));
 

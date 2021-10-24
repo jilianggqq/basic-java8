@@ -1,4 +1,4 @@
-package edu.gqq.stream;
+package edu.gqq.funcinterface;
 
 import java.util.concurrent.Callable;
 import java.util.function.Supplier;

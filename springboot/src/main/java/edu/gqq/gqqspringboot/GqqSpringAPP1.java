@@ -1,7 +1,6 @@
 package edu.gqq.gqqspringboot;
 
 import edu.gqq.util.SpringUtil;
-import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -9,16 +8,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-
-//Configuration,EnableAutoConfiguration,ComponentScan
-// use mvn org.springframework.boot:spring-boot-maven-plugin:run to start
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-public class GqqSpringbootApplication {
+@ComponentScan(basePackages = {"edu.gqq.beans"})
+public class GqqSpringAPP1 {
 
-    Logger logger = LoggerFactory.getLogger(GqqSpringbootApplication.class);
+    Logger logger = LoggerFactory.getLogger(GqqSpringAPP1.class);
+
     public static void main(String[] args) {
-        SpringApplication.run(GqqSpringbootApplication.class, args);
+        SpringApplication.run(GqqSpringAPP1.class, args);
     }
 
     /**

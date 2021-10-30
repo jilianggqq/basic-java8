@@ -1,4 +1,4 @@
-package edu.gqq.gqqspringboot.beans;
+package edu.gqq.beans;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

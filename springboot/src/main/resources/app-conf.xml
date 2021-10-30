@@ -1,8 +1,0 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans
-  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
-
-  <bean id="anybean" class="edu.gqq.gqqspringboot.beans.AnyBean"/>
-  <bean id="appcontext" class="edu.gqq.gqqspringboot.ApplicationContextAwareTest"/>
-</beans>

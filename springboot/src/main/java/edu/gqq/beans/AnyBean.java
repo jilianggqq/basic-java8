@@ -1,4 +1,4 @@
-package edu.gqq.gqqspringboot.beans;
+package edu.gqq.beans;
 
 public class AnyBean {
 

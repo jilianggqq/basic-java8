@@ -1,0 +1,37 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
+
+  <bean id="anybean" class="edu.gqq.beans.AnyBean"/>
+  <bean id="appcontext" class="edu.gqq.springhelper.ApplicationContextAwareTest"/>
+
+  <bean id="indexService" class="edu.gqq.beans.impl.IndexService"/>
+
+  <bean id="indexApp" class="edu.gqq.beans.ServiceDemoBean">
+    <property name="service" ref="indexService"/>
+  </bean>
+
+  <bean id="indexApp2" class="edu.gqq.beans.ServiceDemoBean">
+    <constructor-arg ref="indexService"/>
+  </bean>
+
+  <!--  How to use one static factory-->
+  <bean id="messageServiceFromStaticFactory" class="edu.gqq.factory.StaticServiceFactory" factory-method="getService">
+    <constructor-arg value="1"/>
+  </bean>
+  <bean id="msgAppWithStaticFactory" class="edu.gqq.beans.ServiceDemoBean">
+    <property name="service" ref="messageServiceFromStaticFactory"/>
+  </bean>
+
+  <!--  How to use one Instance factory-->
+  <!--  create a new factory bean-->
+  <bean id="instanceServiceFactory" class="edu.gqq.factory.InstanceServiceFactory"/>
+  <bean id="messageServiceFromInstanceFactory" class="edu.gqq.factory.InstanceServiceFactory"
+    factory-method="getService" factory-bean="instanceServiceFactory">
+    <constructor-arg value="1"/>
+  </bean>
+  <bean id="msgAppWithInstanceFactory" class="edu.gqq.beans.ServiceDemoBean">
+    <property name="service" ref="messageServiceFromInstanceFactory"/>
+  </bean>
+</beans>

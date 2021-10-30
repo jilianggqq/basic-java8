@@ -19,7 +19,7 @@
     <logbackVer>1.2.3</logbackVer>
     <spring-kafka.version>2.5.8.RELEASE</spring-kafka.version>
     <testcontainers-kafka.version>1.15.0</testcontainers-kafka.version>
-    <start-class>edu.gqq.gqqspringboot.GqqSpringbootApplication</start-class>
+    <start-class>edu.gqq.gqqspringboot.GqqSpringApp2.GqqSpringbootApplication</start-class>
     <!--    <start-class>edu.sources.kafka.KafkaApplication</start-class>-->
   </properties>
 

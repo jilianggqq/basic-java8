@@ -1,4 +1,4 @@
-package edu.gqq.gqqspringboot;
+package edu.gqq.springhelper;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

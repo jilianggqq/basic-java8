@@ -1,7 +1,7 @@
 package edu.gqq.gqqspringboot;
 
-import edu.gqq.gqqspringboot.beans.About;
-import edu.gqq.gqqspringboot.beans.UserBean;
+import edu.gqq.beans.About;
+import edu.gqq.beans.UserBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

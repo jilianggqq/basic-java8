@@ -47,6 +47,8 @@ public class CountAndSay38 {
 
     @Test
     public void testCountAndSay() {
+        String say = say("123");
+        System.out.println(say);
         Assert.assertEquals("Error", countAndSay(0));
         Assert.assertEquals("11", countAndSay(2));
         Assert.assertEquals("1211", countAndSay(4));

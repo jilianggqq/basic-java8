@@ -1,45 +1,50 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <!-- parent pom -->
-    <parent>
-        <artifactId>basic-java8</artifactId>
-        <groupId>edu.gqq</groupId>
-        <version>0.1-SNAPSHOT</version>
-    </parent>
+  <!-- parent pom -->
+  <parent>
+    <artifactId>basic-java8</artifactId>
+    <groupId>edu.gqq</groupId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
 
-    <artifactId>basic-java8-core</artifactId>
-    <packaging>jar</packaging>
-    <name>basic-java8-core</name>
-    <url>http://maven.apache.org</url>
+  <artifactId>basic-java8-core</artifactId>
+  <packaging>jar</packaging>
+  <name>basic-java8-core</name>
+  <url>http://maven.apache.org</url>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jettyVersion>9.4.19.v20190610</jettyVersion>
-        <powermockVer>1.6.4</powermockVer>
-        <powerapiVer>1.7.4</powerapiVer>
-    </properties>
-    <dependencies>
-        <!-- dependencies for mockito -->
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-module-junit4</artifactId>
-            <version>${powermockVer}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-core</artifactId>
-            <version>${powermockVer}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito</artifactId>
-            <version>${powermockVer}</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jettyVersion>9.4.19.v20190610</jettyVersion>
+    <powermockVer>1.6.4</powermockVer>
+    <powerapiVer>1.7.4</powerapiVer>
+  </properties>
+  <dependencies>
+    <!-- dependencies for mockito -->
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-module-junit4</artifactId>
+      <version>${powermockVer}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-core</artifactId>
+      <version>${powermockVer}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-api-mockito</artifactId>
+      <version>${powermockVer}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>testcontainers</artifactId>
+      <version>1.15.0</version>
+    </dependency>
+  </dependencies>
 </project>

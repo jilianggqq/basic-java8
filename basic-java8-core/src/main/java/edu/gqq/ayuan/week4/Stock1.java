@@ -74,7 +74,50 @@ class Stock1 extends Stock1Base {
      */
     private void nTimelognSpace() {
         //must write the routine. UNTIL YOU WRITE UNCOMMENT BELOW
-        nsquareTimeConstantSpace();
+//        helped by https://leetcode.com/problems/best-time-to-buy-and-sell-stock/discuss/172820/Explanation-for-algorithm-%2B-why-this-is-DP
+        int len = size();
+        if (len <= 1) {
+            return;
+        }
+        int[][] minToDate = new int[len][2];
+        minToDate[0][0] = price(0);
+        minToDate[0][1] = 0;
+        for (int i = 1; i < len; i++) {
+            numConquer++;
+            if (price(i) < minToDate[i - 1][0]) {
+                minToDate[i][0] = price(i);
+                minToDate[i][1] = i;
+            } else {
+                minToDate[i][0] = minToDate[i - 1][0];
+                minToDate[i][1] = minToDate[i - 1][1];
+            }
+        }
+        int[] diffFromLast = new int[len];
+        diffFromLast[0] = 0;
+        for (int i = 1; i < len; i++) {
+            numConquer++;
+            diffFromLast[i] = price(i) - price(i - 1);
+        }
+
+//        profitIfSold[i] = max(0, profitIfSold[i-1] + diffFromLast[i])
+        int[] profitIfSold = new int[len];
+        profitIfSold[0] = 0;
+        for (int i = 1; i < len; i++) {
+            numConquer++;
+            profitIfSold[i] = Math.max(0, profitIfSold[i - 1] + diffFromLast[i]);
+        }
+
+        int maxProfit = 0;
+        int idx = 0;
+        for (int i = 1; i < len; i++) {
+            numConquer++;
+            if (profitIfSold[i] > maxProfit) {
+                maxProfit = profitIfSold[i];
+                idx = i;
+            }
+        }
+        sellDay = idx;
+        buyDay = minToDate[idx][1];
     }
 
     /*

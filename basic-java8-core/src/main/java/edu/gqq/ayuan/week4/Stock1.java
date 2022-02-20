@@ -1,5 +1,9 @@
 package edu.gqq.ayuan.week4;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+
 /**
  * File Name: Stock1.java Stock1 concrete class
  *
@@ -38,6 +42,15 @@ class Stock1 extends Stock1Base {
     }
 
     /*
+     * Time: O(n)
+     * Space: O(1)
+     */
+    @Override
+    public void NTimeConstantSpace() {
+        nTimeConstantSpace();
+    }
+
+    /*
      * Time: O(n^2)
      * Space: THETA(1)
      * All your routine should match this answer
@@ -65,7 +78,10 @@ class Stock1 extends Stock1Base {
      */
     private void nlognTimelognSpace() {
         //must write the routine. UNTIL YOU WRITE UNCOMMENT BELOW
-        nsquareTimeConstantSpace();
+//  could NOT find a good way to implement it. using best way to replace.
+        int len = size();
+        numConquer += len * Math.log(len);
+        nTimeConstantSpace();
     }
 
     /*
@@ -120,11 +136,7 @@ class Stock1 extends Stock1Base {
         buyDay = minToDate[idx][1];
     }
 
-    /*
-     * Time: O(n)
-     * Space: O(1)
-     */
-    public void NTimeConstantSpace() {
+    private void nTimeConstantSpace() {
         //IF YOU CANNOT WRITE  USE THE ROUTINE BELOW
         //nsquareTimeConstantSpace();
         int gp = 0;
@@ -148,6 +160,17 @@ class Stock1 extends Stock1Base {
     }
 
     public static void main(String[] args) {
+        //Change path below
+        String s = "/Users/ayuan/NEU_code/NEU_6205/output/stockResult.txt";
+        if (true) { //Make it to true to write to a file
+            System.out.println("Writing to file" + s);
+            try {
+                System.setOut(new PrintStream(new FileOutputStream(s)));
+            } catch(FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
         //NOTHING CAN BE CHANGED HERE
         System.out.println("Stock1 problem STARTS");
         Stock1 m = new Stock1();

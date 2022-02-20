@@ -72,7 +72,7 @@ abstract class Stock1Base {
 
     protected void testBed() {
         basic();
-//        random();
+        random();
     }
 
     /*

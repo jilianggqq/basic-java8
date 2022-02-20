@@ -31,12 +31,6 @@ class Stock1 extends Stock1Base {
         nlognTimelognSpace();
     }
 
-//    @Override
-//    void NTimeLognSpace() {
-//        //NOTHING CAN BE CHANGED HERE
-//        nTimelognSpace();
-//    }
-
     @Override
     void NTimeLognSpace() {
         //NOTHING CAN BE CHANGED HERE
@@ -51,9 +45,9 @@ class Stock1 extends Stock1Base {
      */
     private void nsquareTimeConstantSpace() {
         int gp = 0;
-        int l = size();
-        for (int buy = 0; buy < l - 1; ++buy) {
-            for (int sell = buy + 1; sell < l; ++sell) {
+        int len = size();
+        for (int buy = 0; buy < len - 1; ++buy) {
+            for (int sell = buy + 1; sell < len; ++sell) {
                 ++numConquer;
                 int p = profit(sell, buy);
                 if (p >= gp) { //So that I can make profit by keeping stock for less time
@@ -71,7 +65,7 @@ class Stock1 extends Stock1Base {
      */
     private void nlognTimelognSpace() {
         //must write the routine. UNTIL YOU WRITE UNCOMMENT BELOW
-//        nsquareTimeConstantSpace();
+        nsquareTimeConstantSpace();
     }
 
     /*
@@ -80,7 +74,7 @@ class Stock1 extends Stock1Base {
      */
     private void nTimelognSpace() {
         //must write the routine. UNTIL YOU WRITE UNCOMMENT BELOW
-        //nsquareTimeConstantSpace();
+        nsquareTimeConstantSpace();
     }
 
     /*
@@ -90,6 +84,24 @@ class Stock1 extends Stock1Base {
     public void NTimeConstantSpace() {
         //IF YOU CANNOT WRITE  USE THE ROUTINE BELOW
         //nsquareTimeConstantSpace();
+        int gp = 0;
+        int len = size();
+        if (len <= 1) {
+            return;
+        }
+        int p = 0;
+        for (int q = 1; q < len; q++) {
+            ++numConquer;
+            int profit = profit(q, p);
+            if (profit > gp) {
+                buyDay = p;
+                sellDay = q;
+                gp = profit;
+            } else if (profit < 0) {
+                // a[q] < a[p], means q is the best day for selling.
+                p = q;
+            }
+        }
     }
 
     public static void main(String[] args) {

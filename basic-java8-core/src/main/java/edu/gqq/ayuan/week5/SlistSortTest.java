@@ -25,11 +25,11 @@ public class SlistSortTest {
 
     SlistSortTest() {
         testBasic("merge_sort");
-        testBasic("quick_sort");
+//        testBasic("quick_sort");
         testRandom("merge_sort");
-        testRandom("quick_sort");
+//        testRandom("quick_sort");
         testAllreadySorted("merge_sort");
-        testAllreadySorted("quick_sort");
+//        testAllreadySorted("quick_sort");
     }
 
     private void sort1(Slist2 s, String method) {

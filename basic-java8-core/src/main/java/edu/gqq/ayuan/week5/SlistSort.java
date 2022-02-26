@@ -61,7 +61,7 @@ public class SlistSort {
     }
 
     // Function to merge sort
-    static Node2 mergeSort(Node2 head) {
+    private Node2 mergeSort(Node2 head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -77,7 +77,7 @@ public class SlistSort {
     }
 
     // Function to merge two linked lists
-    static Node2 merge(Node2 head1, Node2 head2) {
+    private Node2 merge(Node2 head1, Node2 head2) {
         Node2 merged = new Node2(-1, -1);
         Node2 temp = merged;
 
@@ -110,8 +110,7 @@ public class SlistSort {
         return merged.next;
     }
 
-    // Find mid using The Tortoise and The Hare approach
-    static Node2 findMid(Node2 head) {
+    private Node2 findMid(Node2 head) {
         Node2 slow = head, fast = head.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
@@ -126,9 +125,61 @@ public class SlistSort {
         }
         //WRITE CODE BELOW
         //YOU CAN HAVE ANY NUMBER OF PRIVATE METHODS
+        if (s == null || s.first == null) {
+            return;
+        }
+        Node2 first = s.first;
+        Node2 end = first;
+        while (end.next != null) {
+            end = end.next;
+        }
+        quickSort(first, end);
 
         if (show) {
             s.Pln("After  sort s = ");
+        }
+    }
+
+    private Node2 paritionLast(Node2 start, Node2 end) {
+        if (start == end || start == null || end == null) {
+            return start;
+        }
+
+        Node2 pivot_prev = start;
+        Node2 curr = start;
+        int pivot = end.d;
+
+        while (start != end) {
+            if (start.d <= pivot) {
+                pivot_prev = curr;
+                int temp = curr.d;
+                curr.d = start.d;
+                start.d = temp;
+                curr = curr.next;
+            }
+            start = start.next;
+        }
+
+        int temp = curr.d;
+        curr.d = pivot;
+        end.d = temp;
+
+        return pivot_prev;
+    }
+
+    private void quickSort(Node2 start, Node2 end) {
+        if (start == null || start == end || start == end.next) {
+            return;
+        }
+
+        // split list and partition recurse
+        Node2 pivot_prev = paritionLast(start, end);
+        quickSort(start, pivot_prev);
+
+        if (pivot_prev != null && pivot_prev == start) {
+            quickSort(pivot_prev.next, end);
+        } else if (pivot_prev != null && pivot_prev.next != null) {
+            quickSort(pivot_prev.next.next, end);
         }
     }
 

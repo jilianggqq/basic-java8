@@ -66,6 +66,7 @@ public class SlistSort {
             return head;
         }
 
+        increment_Recursion(1);
         Node2 mid = findMid(head);
         Node2 head2 = mid.next;
         mid.next = null;
@@ -91,6 +92,7 @@ public class SlistSort {
                 temp.next = head2;
                 head2 = head2.next;
             }
+            increment_numCompare(1);
             temp = temp.next;
         }
 
@@ -156,7 +158,9 @@ public class SlistSort {
                 curr.d = start.d;
                 start.d = temp;
                 curr = curr.next;
+                increment_numSwap(1);
             }
+            increment_numCompare(1);
             start = start.next;
         }
 
@@ -172,6 +176,7 @@ public class SlistSort {
             return;
         }
 
+        increment_Recursion(1);
         // split list and partition recurse
         Node2 pivot_prev = paritionLast(start, end);
         quickSort(start, pivot_prev);

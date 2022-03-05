@@ -66,16 +66,16 @@ class L0322Test {
             int[] w = {1, 3, 4};
             computeChange(w, 6, 2);
         }
-//        {
-//            System.out.println("------------test2---------------------");
-//            int[] w = {1, 2, 6, 10, 24, 30, 90};
-//            computeChange(w, 100, 2);
-//        }
-//        {
-//            System.out.println("------------Amazon stamp--------------------");
-//            int[] w = {1, 2, 6, 10, 24, 30, 90};
-//            computeChange(w, 34, 2);
-//        }
+        {
+            System.out.println("------------test2---------------------");
+            int[] w = {1, 2, 6, 10, 24, 30, 90};
+            computeChange(w, 100, 2);
+        }
+        {
+            System.out.println("------------Amazon stamp--------------------");
+            int[] w = {1, 2, 6, 10, 24, 30, 90};
+            computeChange(w, 34, 2);
+        }
         {
             System.out.println("------------US coins--------------------");
             int[] w = {1, 5, 10, 25};
@@ -106,24 +106,24 @@ class L0322Test {
             int[] w = {2};
             computeChange(w, 3, -1);
         }
-//        {
-//            show = false;
-//            System.out.println("------------can give change--------------------");
-//            int[] w = {186, 419, 83, 408};
-//            computeChange(w, 6249, 20);
-//        }
-//        {
-//            show = false;
-//            System.out.println("------------can give change--------------------");
-//            int[] w = {474, 83, 404, 3};
-//            computeChange(w, 264, 8);
-//        }
+        {
+            show = false;
+            System.out.println("------------can give change--------------------");
+            int[] w = {186, 419, 83, 408};
+            computeChange(w, 6249, 20);
+        }
+        {
+            show = false;
+            System.out.println("------------can give change--------------------");
+            int[] w = {474, 83, 404, 3};
+            computeChange(w, 264, 8);
+        }
     }
 
     public static void main(String[] args) {
         //Change path below
-        String s = "C:\\Users\\jag\\OneDrive\\vasu\\work\\leetcode\\L0322Coinchage\\java11\\L0322output.txt";
-        if (false) { //Make it to true to write to a file
+        String s = "/Users/qiqiangguan/Downloads/expectedoutput.txt";
+        if (true) { //Make it to true to write to a file
             System.out.println("Writing to file" + s);
             try {
                 System.setOut(new PrintStream(new FileOutputStream(s)));

@@ -1,12 +1,10 @@
 package edu.gqq.ayuan.week6;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.StringJoiner;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * File Name: L0322.java
@@ -94,11 +92,13 @@ class L0322 {
 
         String iArray =
             IntStream.rangeClosed(0, amount).mapToObj(x -> convertToPrintStr(x)).collect(Collectors.joining(
-            ""));
+                ""));
         System.out.println(String.format("i =     %s", iArray));
 
-        String mArray = Arrays.stream(results).
-            map(res -> convertToPrintStr(getStepNumber(res)))
+        List<Integer> lstRes = Arrays.stream(results).map(res -> getStepNumber(res))
+            .collect(Collectors.toList());
+        String mArray = lstRes.stream()
+            .map(res -> convertToPrintStr(res.intValue()))
             .collect(Collectors.joining(""));
         System.out.println(String.format("m array %s", mArray));
 
@@ -107,6 +107,26 @@ class L0322 {
             .collect(Collectors.joining(""));
         System.out.println(String.format("k array %s", kArray));
 
+        // print detailed info
+        for (int i = 0; i < results.length; i++) {
+            ArrayList<Integer> result = results[i];
+            List<String> infos = new ArrayList();
+            System.out.println(String.format("minimum change for %s cents can be achieved using %s coins",
+                i, lstRes.get(i)));
+            if (lstRes.get(i) == -1) {
+                infos.add("Change cannot be given");
+            } else if (lstRes.get(i) > 0) {
+                int step = 0;
+                int currVal = 0;
+                for (int val : result) {
+                    currVal += val;
+                    int remainVal = i - currVal;
+                    infos.add(String.format("%s::Pick coin %s. Current val= %s. Remaining val= %s",
+                        ++step, val, currVal, remainVal));
+                }
+            }
+            infos.forEach(System.out::println);
+        }
     }
 
     private void alg() {

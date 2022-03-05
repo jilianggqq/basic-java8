@@ -85,7 +85,6 @@ class L0322 {
                 ans.add(res);
             }
         }
-        StringJoiner joiner = new StringJoiner(",");
         printLog();
     }
 
@@ -108,15 +107,6 @@ class L0322 {
             .collect(Collectors.joining(""));
         System.out.println(String.format("k array %s", kArray));
 
-    }
-
-    private String convertToPrintStr(int num) {
-        String res = num + "";
-        int len = res.length();
-        for (int i = 0; i < 4 - len; i++) {
-            res = " " + res;
-        }
-        return res;
     }
 
     private void alg() {
@@ -181,6 +171,14 @@ class L0322 {
         res.add(coin);
     }
 
+    private String convertToPrintStr(int num) {
+        String res = num + "";
+        int len = res.length();
+        for (int i = 0; i < 4 - len; i++) {
+            res = " " + res;
+        }
+        return res;
+    }
 
     public static void main(String[] args) {
         System.out.println("Run L0322Test.java");

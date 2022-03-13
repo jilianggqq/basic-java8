@@ -1,6 +1,7 @@
 package edu.gqq.ayuan.week7;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 /**
  * File Name: DequeTest.java
@@ -12,11 +13,20 @@ import java.util.ArrayList;
  * @year 2022
  */
 class Deque {
+
+    // low bounder
+    private int lb;
+    // hight bounder
+    private int hb;
+
+    private final HashMap<Integer, Integer> idxMap = new HashMap<>();
+    private final LinkedList<Integer> linkedList = new LinkedList<>();
     //You can use any data structure you want except Deque like ArrayDeque from Java library
     //All operation must be O(1)
 
     Deque() {
-
+        lb = 0;
+        hb = -1;
     }
 
     /*
@@ -24,7 +34,9 @@ class Deque {
      * MUST BE Space O(1)
      */
     public void addFirst(Integer v) {
-
+        lb--;
+        idxMap.put(lb, v);
+        linkedList.addFirst(v);
     }
 
     /*
@@ -32,7 +44,9 @@ class Deque {
      * MUST BE Space O(1)
      */
     public void addLast(Integer v) {
-
+        hb++;
+        idxMap.put(hb, v);
+        linkedList.addLast(v);
     }
 
     /*
@@ -40,7 +54,13 @@ class Deque {
      * MUST BE Space O(1)
      */
     public int removeFirst() {
-        return 0; //FILL
+        if (size() > 0) {
+            idxMap.remove(lb);
+            lb++;
+            Integer val = linkedList.removeFirst();
+            return val;
+        }
+        return Integer.MIN_VALUE;
     }
 
     /*
@@ -48,7 +68,13 @@ class Deque {
      * MUST BE Space O(1)
      */
     public int removeLast() {
-        return 0; //FILL
+        if (size() > 0) {
+            idxMap.remove(hb);
+            hb--;
+            Integer val = linkedList.removeFirst();
+            return val;
+        }
+        return Integer.MIN_VALUE;
     }
 
     /*
@@ -56,7 +82,7 @@ class Deque {
      * MUST BE Space O(1)
      */
     public int size() {
-        return 0; //FILL
+        return hb - lb + 1;
     }
 
     /*
@@ -67,7 +93,7 @@ class Deque {
      * For 100% grade, this must work
      */
     public int getV(int pos) {
-        return 0; //FILL
+        return idxMap.get(pos + lb);
     }
 
     /*************************************************************

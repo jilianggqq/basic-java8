@@ -71,7 +71,7 @@ class Deque {
         if (size() > 0) {
             idxMap.remove(hb);
             hb--;
-            Integer val = linkedList.removeFirst();
+            Integer val = linkedList.removeLast();
             return val;
         }
         return Integer.MIN_VALUE;

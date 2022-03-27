@@ -1,5 +1,7 @@
 package edu.gqq.ayuan.midterm;
 
+import java.util.Arrays;
+
 /**
  * File Name: Hop.java Hop concrete class
  *
@@ -15,7 +17,7 @@ class Hop extends HopBase {
     //You cannot have any functions or data here
     Hop() {
         //NOTHING CAN BE CHANGED HERE
-//        testBed();
+        testBed();
     }
 
     @Override
@@ -35,12 +37,15 @@ class Hop extends HopBase {
      *
      */
     private int alg(int[] s, int x) {
-        if (x < 0) {
+        if (s[x] < 0) {
             return -1;
         }
         int idx = s[x];
         s[x] = idx == 0 ? Integer.MIN_VALUE : -idx;
-        return 1 + alg(s, idx);
+        int res = 1 + alg(s, idx);
+        s[x] = s[x] == Integer.MIN_VALUE ? 0 : Math.abs(s[x]);
+        System.out.println(String.format("--f(%s) is %s--", x, res));
+        return res;
     }
 
     public static void main(String[] args) {

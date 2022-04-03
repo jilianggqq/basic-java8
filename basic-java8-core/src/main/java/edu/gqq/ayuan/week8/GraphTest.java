@@ -222,7 +222,7 @@ class GraphTest {
 
     public static void main(String[] args) {
         String s = GraphInputOutputDir.outputFileBase + "output.txt";
-        if (false) { //Make it to true to write to a file
+        if (true) { //Make it to true to write to a file
             System.out.println("Writing to " + s);
             try {
                 System.setOut(new PrintStream(new FileOutputStream(s)));

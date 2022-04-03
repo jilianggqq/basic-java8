@@ -1,5 +1,6 @@
 package edu.gqq.ayuan.week8;
 
+import edu.gqq.ayuan.week8.GraphType.Type;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -61,7 +62,27 @@ class GraphBuilder {
                     /******************************************************************
                      WRITE YOUR CODE BELOW
                      ******************************************************************/
+                    if (notreadlines >= 1) {
+                        continue;
+                    }
 
+                    int idxNode1 = g.io.insertOrFind(s[0], false);
+                    int idxNode2 = g.io.insertOrFind(s[1], false);
+                    double weight = l == 3 ? Double.parseDouble(s[2]) : 0;
+
+                    Node node1 = g.buildNodeIfNotExistAndAppend(idxNode1);
+                    Node node2 = g.buildNodeIfNotExistAndAppend(idxNode2);
+
+                    // undirected.
+                    if (GraphType.Type.UNDIRECTED.equals(t) || Type.WEIGHTED_UNDIRECTED.equals(t)) {
+                        g.createEdge(node1, node2, weight, true);
+                        g.createEdge(node2, node1, weight, true);
+                        g.createEdge(node1, node2, weight, false);
+                        g.createEdge(node2, node1, weight, false);
+                    } else {
+                        g.createEdge(node1, node2, weight, true);
+                        g.createEdge(node2, node1, weight, false);
+                    }
                 }
             }
         } catch(IOException e) {

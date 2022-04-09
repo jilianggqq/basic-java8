@@ -62,7 +62,7 @@ class GraphBuilder {
                     /******************************************************************
                      WRITE YOUR CODE BELOW
                      ******************************************************************/
-                    if (notreadlines >= 1) {
+                    if (notreadlines >= 1 || s[0].equals(s[1])) {
                         continue;
                     }
 

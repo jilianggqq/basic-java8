@@ -136,7 +136,7 @@ class GraphTest {
         dfsUsingTimeStamp("3", GraphType.Type.DIRECTED, true); //loop
         dfsUsingTimeStamp("cat", GraphType.Type.DIRECTED, false);
         dfsUsingTimeStamp("7", GraphType.Type.WEIGHTED_DIRECTED, false);
-        dfsUsingTimeStamp("mediumEWD", GraphType.Type.WEIGHTED_DIRECTED, true); //loop
+//        dfsUsingTimeStamp("mediumEWD", GraphType.Type.WEIGHTED_DIRECTED, true); //loop
     }
 
     private void testDijkstra() {
@@ -215,8 +215,8 @@ class GraphTest {
     }
 
     private void testBed() {
-        testBuildGraph();
-        //testDfsUsingTimeStamp() ;
+//        testBuildGraph();
+        testDfsUsingTimeStamp() ;
         //testDijkstra();
     }
 

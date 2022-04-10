@@ -129,14 +129,14 @@ class GraphTest {
      * Test dfsUsingTimeStamp
      */
     private void testDfsUsingTimeStamp() {
-        dfsUsingTimeStamp("u1", GraphType.Type.UNDIRECTED, false);
-        dfsUsingTimeStamp("1", GraphType.Type.UNDIRECTED, false);
-        dfsUsingTimeStamp("udf1", GraphType.Type.UNDIRECTED, true);//loop
-        dfsUsingTimeStamp("2", GraphType.Type.DIRECTED, false);
-        dfsUsingTimeStamp("3", GraphType.Type.DIRECTED, true); //loop
-        dfsUsingTimeStamp("cat", GraphType.Type.DIRECTED, false);
-        dfsUsingTimeStamp("7", GraphType.Type.WEIGHTED_DIRECTED, false);
-//        dfsUsingTimeStamp("mediumEWD", GraphType.Type.WEIGHTED_DIRECTED, true); //loop
+//        dfsUsingTimeStamp("u1", GraphType.Type.UNDIRECTED, false);
+//        dfsUsingTimeStamp("1", GraphType.Type.UNDIRECTED, false);
+//        dfsUsingTimeStamp("udf1", GraphType.Type.UNDIRECTED, true);//loop
+//        dfsUsingTimeStamp("2", GraphType.Type.DIRECTED, false);
+//        dfsUsingTimeStamp("3", GraphType.Type.DIRECTED, true); //loop
+//        dfsUsingTimeStamp("cat", GraphType.Type.DIRECTED, false);
+//        dfsUsingTimeStamp("7", GraphType.Type.WEIGHTED_DIRECTED, false);
+        dfsUsingTimeStamp("mediumEWD", GraphType.Type.WEIGHTED_DIRECTED, true); //loop
     }
 
     private void testDijkstra() {

@@ -30,8 +30,8 @@ class GraphBuilder {
             BufferedReader br = new BufferedReader(new FileReader(f));
             StringBuilder sb = new StringBuilder();
             String lastline = null;
-            int notreadlines = 0;
             while (true) {
+                int notreadlines = 0;
                 String line1 = br.readLine();
                 if (line1 == null) {
                     //System.out.println("lastline = " + lastline) ;

@@ -6,7 +6,6 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.apache.commons.collections4.MapUtils;
@@ -20,7 +19,6 @@ import org.apache.commons.collections4.MapUtils;
 
 class GraphDFSUsingTimeStamp {
 
-    public static final String FOOTER = "}\n";
     private Graph g;
     private int[] work;
     private boolean[] cycle;
@@ -28,8 +26,8 @@ class GraphDFSUsingTimeStamp {
     private String f;
     //You can have any number of private classes, variables and functions
     // SimpleEntry is a key value pair in Java8
+    public static final String FOOTER = "}\n";
     private final HashMap<Integer, SimpleEntry<Integer, Integer>> mapTimeStamps = new HashMap<>();
-    private final HashSet<Integer> cycleSet = new HashSet<>();
 
     GraphDFSUsingTimeStamp(Graph g, int[] work, boolean[] cycle, ArrayList<Integer> topologicalOrderArray,
         String f) {
@@ -61,21 +59,19 @@ class GraphDFSUsingTimeStamp {
     }
 
     private void helper(Node n, int lastVisited) {
-        if (cycleSet.contains(n.num)) {
-            cycle[0] = true;
-        }
         if (mapTimeStamps.containsKey(n.num)) {
+            if (null == mapTimeStamps.get(n.num).getValue()) {
+                cycle[0] = true;
+            }
             return;
         }
         work[0]++;
-        mapTimeStamps.put(n.num, new SimpleEntry(work[0], -1));
-        cycleSet.add(n.num);
+        mapTimeStamps.put(n.num, new SimpleEntry(work[0], null));
         for (Edge e : n.fanout.values()) {
             if (lastVisited != g.getNode(e.other).num) {
                 helper(g.getNode(e.other), n.num);
             }
         }
-        cycleSet.remove(n.num);
         work[0]++;
         mapTimeStamps.get(n.num).setValue(work[0]);
         topologicalOrderArray.add(n.num);

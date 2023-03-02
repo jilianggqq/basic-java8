@@ -4,13 +4,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>basic-java8</artifactId>
+    <artifactId>gqq-java-demo</artifactId>
     <groupId>edu.gqq</groupId>
-    <version>1.0.0</version>
+    <version>${rversion}</version>
   </parent>
 
-  <artifactId>gqq-springboot</artifactId>
-  <name>gqq-springboot</name>
+  <artifactId>springbootDemo</artifactId>
+  <name>springbootDemo</name>
   <description>Demo project for Spring Boot</description>
 
   <properties>

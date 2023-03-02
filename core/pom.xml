@@ -5,14 +5,14 @@
 
   <!-- parent pom -->
   <parent>
-    <artifactId>basic-java8</artifactId>
+    <artifactId>gqq-java-demo</artifactId>
     <groupId>edu.gqq</groupId>
-    <version>1.0.0</version>
+    <version>${rversion}</version>
   </parent>
 
-  <artifactId>basic-java8-core</artifactId>
+  <artifactId>core</artifactId>
   <packaging>jar</packaging>
-  <name>basic-java8-core</name>
+  <name>core</name>
   <url>http://maven.apache.org</url>
 
   <properties>

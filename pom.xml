@@ -26,7 +26,7 @@
     <junitVersion>4.13.1</junitVersion>
     <commonLang3Ver>3.11</commonLang3Ver>
     <commonCollectionVer>4.4</commonCollectionVer>
-    <logbackVer>1.2.3</logbackVer>
+    <logbackVer>1.3.12</logbackVer>
     <rversion>1.0.1</rversion>
   </properties>
 
